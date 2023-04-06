@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
+  /* Counter app using state nofifier */
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -55,7 +57,7 @@ class Example2 extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Example 2'),
+          title: const Text('Counter with state notifier'),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
