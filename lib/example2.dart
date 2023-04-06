@@ -28,13 +28,21 @@ extension OptionalInfixAddition<T extends num> on T? {
     }
     return null;
   }
+
+  T? operator -(T? other) {
+    final shadow = this;
+    if (shadow != null) {
+      return shadow - (other ?? 0) as T;
+    }
+    return null;
+  }
 }
 
 class Counter extends StateNotifier<int?> {
   Counter() : super(null);
   void incremenet() => state = state == null ? 1 : state + 1;
   int? get value => state;
-  //void decrement() => state = state < 1 ? 0 : state - 1;
+  void decrement() => state = state! < 1 ? 0 : state - 1;
 }
 
 final counterProvider =
@@ -71,6 +79,12 @@ class Example2 extends ConsumerWidget {
             TextButton(
                 onPressed: ref.read(counterProvider.notifier).incremenet,
                 child: const Text('Increment')),
+            const SizedBox(
+              height: 10,
+            ),
+            TextButton(
+                onPressed: ref.read(counterProvider.notifier).decrement,
+                child: const Text('Decrement')),
           ],
         ));
   }
