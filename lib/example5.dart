@@ -1,5 +1,4 @@
 import 'dart:collection';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -44,7 +43,7 @@ class Person {
 }
 
 class DataModel extends ChangeNotifier {
-  List<Person> _people = [];
+  final List<Person> _people = [];
 
   int get count => people.length;
 
@@ -76,7 +75,7 @@ class Example5 extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Timer Retrieve With Stream builder'),
+          title: const Text('Person manager With Change notifier'),
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
